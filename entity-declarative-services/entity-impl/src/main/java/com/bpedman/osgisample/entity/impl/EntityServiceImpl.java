@@ -14,6 +14,7 @@ import java.util.Collection;
 import java.util.Date;
 import java.util.HashMap;
 import java.util.Map;
+import java.util.concurrent.atomic.AtomicInteger;
 
 /**
  * Entity: bpedersen
@@ -25,6 +26,7 @@ import java.util.Map;
 )
 public class EntityServiceImpl implements EntityService {
 
+    private static final AtomicInteger counter = new AtomicInteger();
     private Map<String, Entity> users;
 
     public EntityServiceImpl() {
@@ -49,7 +51,8 @@ public class EntityServiceImpl implements EntityService {
 
     @Override
     public Entity addUser(Entity user) {
-        // TODO: generate URN ID
+        String id = "entities:" + counter.incrementAndGet();
+        user.setId(id);
         user.setLastModified(new Date());
         users.put(user.getId(), user);
         return user;
