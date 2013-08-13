@@ -9,8 +9,8 @@
     </parent>
     <modelVersion>4.0.0</modelVersion>
 
-    <artifactId>entity-service-tracker</artifactId>
-    <groupId>com.bpedman.osgi-sample.servicetracker</groupId>
+    <artifactId>entity-blueprint</artifactId>
+    <groupId>com.bpedman.osgi-sample.blueprint</groupId>
     <packaging>pom</packaging>
 
     <modules>

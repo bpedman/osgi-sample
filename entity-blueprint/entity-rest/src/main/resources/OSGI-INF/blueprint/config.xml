@@ -1,0 +1,46 @@
+<blueprint xmlns="http://www.osgi.org/xmlns/blueprint/v1.0.0"
+           xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+           xmlns:jaxrs="http://cxf.apache.org/blueprint/jaxrs"
+           xmlns:cxf="http://cxf.apache.org/blueprint/core"
+           xsi:schemaLocation="
+             http://www.osgi.org/xmlns/blueprint/v1.0.0 http://www.osgi.org/xmlns/blueprint/v1.0.0/blueprint.xsd
+             http://cxf.apache.org/blueprint/jaxrs http://cxf.apache.org/schemas/blueprint/jaxrs.xsd
+             http://cxf.apache.org/blueprint/core http://cxf.apache.org/schemas/blueprint/core.xsd
+             ">
+
+    <cxf:bus>
+        <cxf:features>
+            <cxf:logging/>
+        </cxf:features>
+    </cxf:bus>
+
+    <jaxrs:server id="entityRestApi" address="/entity">
+        <jaxrs:serviceBeans>
+            <ref component-id="entityRestApiResource"/>
+        </jaxrs:serviceBeans>
+        <jaxrs:providers>
+            <bean class="org.codehaus.jackson.jaxrs.JacksonJsonProvider"/>
+        </jaxrs:providers>
+    </jaxrs:server>
+
+    <bean id="entityRestApiResource" class="com.bpedman.osgisample.entity.rest.EntityServiceRest">
+        <property name="entityService" ref="entityService"/>
+    </bean>
+
+    <reference id="entityService" interface="com.bpedman.osgisample.entity.EntityService"/>
+
+    <jaxrs:server id="nodeRestApi" address="/node">
+        <jaxrs:serviceBeans>
+            <ref component-id="nodeRestApiResource"/>
+        </jaxrs:serviceBeans>
+        <jaxrs:providers>
+            <bean class="org.codehaus.jackson.jaxrs.JacksonJsonProvider"/>
+        </jaxrs:providers>
+    </jaxrs:server>
+
+    <bean id="nodeRestApiResource" class="com.bpedman.osgisample.entity.rest.NodeServiceRest">
+        <property name="nodeService" ref="nodeService"/>
+    </bean>
+
+    <reference id="nodeService" interface="com.bpedman.osgisample.entity.NodeService"/>
+</blueprint>

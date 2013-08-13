@@ -3,8 +3,8 @@
          xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
          xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
     <parent>
-        <artifactId>entity-service-tracker</artifactId>
-        <groupId>com.bpedman.osgi-sample.servicetracker</groupId>
+        <artifactId>entity-blueprint</artifactId>
+        <groupId>com.bpedman.osgi-sample.blueprint</groupId>
         <version>1.0-SNAPSHOT</version>
     </parent>
     <modelVersion>4.0.0</modelVersion>
@@ -84,7 +84,6 @@
                             org.osgi.framework,
                             org.osgi.util.tracker,
                         </Import-Package>
-                        <Bundle-Activator>com.bpedman.osgisample.entity.rest.Activator</Bundle-Activator>
                     </instructions>
                 </configuration>
             </plugin>

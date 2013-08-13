@@ -10,6 +10,7 @@
     <version>1.0-SNAPSHOT</version>
     <modules>
         <module>entity-service-tracker</module>
+        <module>entity-blueprint</module>
     </modules>
 
     <properties>
