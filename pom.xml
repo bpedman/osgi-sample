@@ -11,6 +11,7 @@
     <modules>
         <module>entity-service-tracker</module>
         <module>entity-blueprint</module>
+        <module>entity-declarative-services</module>
     </modules>
 
     <properties>
